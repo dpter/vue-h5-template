@@ -22,7 +22,7 @@ service.interceptors.response.use(
       showToast(res.msg);
       return Promise.reject(res.msg || 'Error');
     } else {
-      return res;
+      return res.data;
     }
   },
   (error: AxiosError) => {

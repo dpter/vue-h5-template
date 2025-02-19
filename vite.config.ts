@@ -38,7 +38,6 @@ export default function ({ command, mode }: ConfigEnv): UserConfig {
     server: {
       host: true,
       hmr: true,
-      https: true,
     },
     plugins: createVitePlugins(viteEnv, isProduction),
     build: {
@@ -55,7 +54,7 @@ export default function ({ command, mode }: ConfigEnv): UserConfig {
       preprocessorOptions: {
         scss: {
           // 配置 nutui 全局 scss 变量
-          additionalData: `@import "@nutui/nutui/dist/styles/variables.scss";@import '@/styles/mixin.scss'; @import '@/styles/vant.scss';`,
+          additionalData: `@use "@nutui/nutui/dist/styles/variables.scss";@use '@/styles/mixin.scss'; @use '@/styles/vant.scss';`,
         },
       },
     },

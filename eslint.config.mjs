@@ -1,5 +1,8 @@
-module.exports = {
-  root: true,
+// eslint.config.js
+
+import { defineConfig } from 'eslint-define-config';
+
+export default defineConfig({
   env: {
     browser: true,
     node: true,
@@ -18,18 +21,20 @@ module.exports = {
     createDefaultProgram: false,
     extraFileExtensions: ['.vue'],
   },
-  extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+  ],
   plugins: ['vue', '@typescript-eslint', 'import'],
   rules: {
     'no-unused-vars': 'off',
     'no-case-declarations': 'off',
     'no-use-before-define': 'off',
     'space-before-function-paren': 'off',
-
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
-
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
@@ -74,4 +79,20 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
   },
   globals: { defineOptions: 'readonly' },
-};
+  ignores: [
+    '**/*.sh',
+    'node_modules',
+    '**/*.md',
+    '**/*.woff',
+    '**/*.ttf',
+    '.vscode',
+    '.idea',
+    'dist',
+    'public',
+    'docs',
+    '.husky',
+    '.local',
+    'bin',
+    'Dockerfile',
+  ],
+});

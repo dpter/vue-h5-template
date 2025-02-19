@@ -15,6 +15,7 @@
 
 <script lang="ts" setup name="ListPage">
   import { listData } from './data';
+
   const router = useRouter();
 
   let list = ref(listData);

@@ -2,11 +2,11 @@
   <div class="login">
     <h2>登录</h2>
     <nut-form ref="ruleForm" :model-value="formData">
-      <nut-form-item required prop="name" :rules="[{ required: true, message: '请输入用户名' }]">
-        <input v-model="formData.name" class="nut-input-text" placeholder="请输入用户名" type="text" />
+      <nut-form-item label="用户名" required prop="name" :rules="[{ required: true, message: '请输入用户名' }]">
+        <nut-input v-model="formData.name" placeholder="请输入用户名" type="text" />
       </nut-form-item>
-      <nut-form-item required prop="pwd" :rules="[{ required: true, message: '请填写联系电话' }]">
-        <input v-model="formData.pwd" class="nut-input-text" placeholder="请输入密码" type="password" />
+      <nut-form-item label="密码" required prop="pwd" :rules="[{ required: true, message: '请输入密码' }]">
+        <nut-input v-model="formData.pwd" placeholder="请输入密码" type="password" />
       </nut-form-item>
       <nut-button block type="info" @click="submit"> 登录 </nut-button>
     </nut-form>
@@ -28,6 +28,7 @@
     ruleForm.value.validate().then(async ({ valid, errors }: any) => {
       if (valid) {
         const userInfo = await userStore.login();
+        console.log(userInfo);
         if (userInfo) {
           router.push({ path: '/home' });
         }

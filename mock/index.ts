@@ -1,6 +1,6 @@
 import { MockMethod, Recordable } from 'vite-plugin-mock';
 
-interface response {
+interface Response {
   body: Recordable;
   query: Recordable;
 }
@@ -9,7 +9,7 @@ export default [
   {
     url: '/api/login',
     method: 'post',
-    response: ({ body, query }: response) => {
+    response: ({ body, query }: Response) => {
       console.log('body>>>>>>>>', body);
       console.log('query>>>>>>>>', query);
       return {

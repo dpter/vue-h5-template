@@ -21,7 +21,7 @@ import { ConfigVisualizerConfig } from './visualizer';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 
 export function createVitePlugins(env: ViteEnv, isBuild: boolean) {
-  const { VITE_USE_MOCK, VITE_USE_ERUDA, VITE_USE_COMPRESS, VITE_USE_REPORT } = env;
+  const { VITE_USE_MOCK, VITE_USE_ERUDA, VITE_USE_COMPRESS, VITE_USE_REPORT, VITE_USE_HTTPS } = env;
 
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     // vue支持
@@ -59,7 +59,7 @@ export function createVitePlugins(env: ViteEnv, isBuild: boolean) {
   // vite-plugin-svg-icons
   vitePlugins.push(ConfigSvgIconsPlugin(isBuild));
 
-  vitePlugins.push(basicSsl());
+  VITE_USE_HTTPS && vitePlugins.push(basicSsl());
 
   if (isBuild) {
     // vite-plugin-imagemin

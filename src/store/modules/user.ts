@@ -10,8 +10,7 @@ interface StoreUser {
   info: Record<any, any>;
 }
 
-export const useUserStore = defineStore({
-  id: 'app-user',
+export const useUserStore = defineStore('user', {
   state: (): StoreUser => ({
     token: token,
     info: {},
@@ -23,20 +22,22 @@ export const useUserStore = defineStore({
   },
   actions: {
     setInfo(info: any) {
-      this.info = info ? info : '';
+      this.info = info ?? '';
     },
-    login() {
-      return new Promise((resolve) => {
-        loginPassword().then((res) => {
-          this.setInfo(res);
-          resolve(res);
-        });
-      });
+    async login() {
+      try {
+        const res = await loginPassword(); // 调用登录接口
+        this.setInfo(res); // 设置用户信息
+        this.token = res.token; // 假设返回的 res 包含 token
+        return res;
+      } catch (error) {
+        console.error('Login failed', error);
+        throw error;
+      }
     },
   },
   persist: {
-    key: 'token',
+    pick: ['token'],
     storage: localStorage,
-    paths: ['token'],
   },
 });

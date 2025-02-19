@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <img src="https://cdn.jsdelivr.net/gh/fonghehe/picture/vue-h5-template/logo.png" /><span> {{ $t('title') }}</span>
+    <img src="https://cdn.jsdelivr.net/gh/fonghehe/picture/vue-h5-template/logo.png" alt="" /><span> {{ $t('title') }}</span>
   </header>
   <div class="intro-header">
     <div>{{ $t('introduction') }}</div>
@@ -28,12 +28,9 @@
       {{ $t('language.en') }}
     </nut-button>
   </div>
-  {{ getUserInfo }}
 </template>
 
 <script lang="ts" setup name="HomePage">
-  import { computed } from 'vue';
-  import { useUserStore } from '@/store/modules/user';
   import { setLang } from '@/i18n';
   import { useI18n } from 'vue-i18n';
   import { Github, Check } from '@nutui/icons-vue';
@@ -41,11 +38,6 @@
   const { locale } = useI18n();
 
   let cellList = ['vue3', 'vite', 'vue-router', 'axios', 'Pinia', 'vue-i18n', 'postcss-px-to-viewport', 'varlet / vant / nutUI', 'eruda'];
-  const userStore = useUserStore();
-  const getUserInfo = computed(() => {
-    const { name = '' } = userStore.getUserInfo || {};
-    return name;
-  });
 
   const changeLang = (type) => {
     setLang(type);
@@ -56,7 +48,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 20px;
+    padding: 10px 20px;
     font-size: 40px;
 
     img {
@@ -70,7 +62,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 24px;
   }
 
   .supportList {

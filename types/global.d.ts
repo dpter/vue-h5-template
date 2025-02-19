@@ -50,6 +50,7 @@ declare global {
     VITE_USE_ERUDA: Boolean;
     VITE_USE_COMPRESS: Boolean;
     VITE_USE_REPORT: Boolean;
+    VITE_USE_HTTPS: Boolean;
   }
 
   declare function parseInt(s: string | number, radix?: number): number;
