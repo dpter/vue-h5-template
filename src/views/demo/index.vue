@@ -76,8 +76,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../styles/mixin.scss';
-
   section {
     .title {
       display: inline-block;

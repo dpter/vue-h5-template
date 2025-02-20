@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-property-sort-order-smacss'],
   plugins: ['stylelint-order', 'stylelint-prettier'],
-  // customSyntax: 'postcss-html',
+  customSyntax: 'postcss-html',
   overrides: [
     {
       files: ['**/*.(css|html|vue)'],
@@ -33,7 +33,29 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['tailwind', 'apply', 'variants', 'responsive', 'screen', 'function', 'if', 'each', 'include', 'mixin', 'extend'],
+        ignoreAtRules: [
+          'extend',
+          'at-root',
+          'debug',
+          'warn',
+          'error',
+          'if',
+          'else',
+          'for',
+          'each',
+          'while',
+          'mixin',
+          'include',
+          'content',
+          'return',
+          'function',
+          'tailwind',
+          'apply',
+          'responsive',
+          'variants',
+          'screen',
+          'use',
+        ],
       },
     ],
     'no-empty-source': null,

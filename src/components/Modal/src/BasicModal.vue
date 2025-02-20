@@ -1,10 +1,10 @@
 <template>
   <Popup
     :show="props.show"
-    @close="$emit('update:show', false)"
     teleport="body"
     :style="`overflow-y: auto;`"
     :close-on-click-overlay="closeOnClickOverlay"
+    @close="$emit('update:show', false)"
   >
     <div :class="['modal-content', size]">
       <div class="content">
@@ -45,5 +45,5 @@
   }>();
 </script>
 <style scoped lang="scss">
-  @import './index.scss';
+  @use './index.scss' as *;
 </style>

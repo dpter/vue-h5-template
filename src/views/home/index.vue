@@ -37,13 +37,15 @@
 
   const { locale } = useI18n();
 
-  let cellList = ['vue3', 'vite', 'vue-router', 'axios', 'Pinia', 'vue-i18n', 'postcss-px-to-viewport', 'varlet / vant / nutUI', 'eruda'];
+  const cellList = ['vue3', 'vite', 'vue-router', 'axios', 'Pinia', 'vue-i18n', 'postcss-px-to-viewport', 'varlet / vant / nutUI', 'eruda'];
 
   const changeLang = (type) => {
     setLang(type);
   };
 </script>
 <style lang="scss">
+  @use '@/styles/mixin.scss' as *;
+
   .header {
     display: flex;
     align-items: center;
@@ -78,6 +80,6 @@
   }
 
   .btn-confirm {
-    @include main-lang-bg(302px, 82px, '/@/assets/button', 'confirm.png');
+    @include main-lang-bg(302px, 82px, '@/assets/button', 'confirm.png');
   }
 </style>

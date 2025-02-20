@@ -5,19 +5,7 @@
 
 import Components from 'unplugin-vue-components/vite';
 import { VueUseComponentsResolver, VantResolver, VarletUIResolver } from 'unplugin-vue-components/resolvers';
-
-const NutUIResolver = () => {
-  return (name) => {
-    if (name.startsWith('Nut')) {
-      const partialName = name.slice(3);
-      return {
-        name: partialName,
-        from: '@nutui/nutui',
-        sideEffects: `@nutui/nutui/dist/packages/${partialName.toLowerCase()}/style`,
-      };
-    }
-  };
-};
+import NutUIResolver from '@nutui/auto-import-resolver';
 
 export const AutoRegistryComponents = () => {
   return Components({

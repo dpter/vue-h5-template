@@ -53,8 +53,11 @@ export default function ({ command, mode }: ConfigEnv): UserConfig {
     css: {
       preprocessorOptions: {
         scss: {
+          api: 'modern-compiler',
+          quietDeps: true,
+          silenceDeprecations: ['legacy-js-api'],
           // 配置 nutui 全局 scss 变量
-          additionalData: `@use "@nutui/nutui/dist/styles/variables.scss";@use '@/styles/mixin.scss'; @use '@/styles/vant.scss';`,
+          additionalData: `@use "@nutui/nutui/dist/styles/variables.scss" as *; @use '@/styles/vant.scss' as *;`,
         },
       },
     },
